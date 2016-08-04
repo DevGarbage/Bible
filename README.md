@@ -1,2 +1,2 @@
 # Bible
-Bible for mobile and web
+Bible for android
