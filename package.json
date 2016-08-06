@@ -42,10 +42,11 @@
     "angular2-in-memory-web-api": "0.0.14"
   },
   "devDependencies": {
+    "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-ruby-sass": "^2.0.6",
+    "gulp-typescript": "^2.13.6",
     "gulp-util": "^3.0.7",
-    "ts-node": "^1.2.2",
     "typescript": "^1.8.10"
   }
 }

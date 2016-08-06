@@ -15,7 +15,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        System.import('app/app.js').catch(function(err){ console.error(err); });
+        System.import('js/app.js').catch(function(err){ console.error(err); });
     },
 
 };

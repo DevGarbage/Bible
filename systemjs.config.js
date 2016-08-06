@@ -2,23 +2,45 @@
  * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
  */
-(function(global) {
-  // map tells the System loader where to look for things
+(function (global) {
+
   var map = {
-    'app':                        'www', // 'dist',
-    '@angular':                   'node_modules/@angular',
-    'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    '@angular': 'lib/@angular',
+    'angular2-in-memory-web-api': 'lib/angular2-in-memory-web-api',
+    'rxjs':                       'lib/rxjs'
   };
-  // packages tells the System loader how to load when no filename and/or no extension
+
   var packages = {
-    'app':                        { defaultExtension: 'js' },
-    'rxjs':                       { defaultExtension: 'js' },
-    'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    '.': { defaultExtension: 'js' }
   };
+  var ngPackageNames = [
+    'common',
+    'compiler',
+    'core',
+    'forms',
+    'http',
+    'platform-browser',
+    'platform-browser-dynamic',
+    'router',
+    'router-deprecated',
+    'upgrade',
+  ];
+
+  function packIndex(pkgName) {
+    packages['@angular/' + pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  }
+
+  function packUmd(pkgName) {
+    packages['@angular/' + pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+  }
+
+  var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+  ngPackageNames.forEach(setPackageConfig);
+
+
   var config = {
-    map: map,
-    packages: packages
+     map: map,
+    packages: packages,
   };
   System.config(config);
 })(this);
